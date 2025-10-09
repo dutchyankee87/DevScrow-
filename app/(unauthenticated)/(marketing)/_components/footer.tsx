@@ -58,8 +58,8 @@ export function Footer() {
               DevScrow
             </Link>
             <p className="text-muted-foreground text-sm leading-6">
-              The world's first marketplace with instant, mathematically guaranteed escrow. 
-              Powered by Devve's revolutionary Contingent Transaction Sets.
+              Escrow without trust — powered by mathematics. 
+              The world's first trustless escrow platform for digital work.
             </p>
             <div className="flex space-x-6">
               {socialLinks.map(item => (
@@ -155,7 +155,7 @@ export function Footer() {
         </div>
         <div className="border-border mt-16 border-t pt-8 sm:mt-20 lg:mt-24">
           <p className="text-muted-foreground text-xs leading-5">
-            &copy; {new Date().getFullYear()} DevScrow. <Link href="https://devve.com/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">powered by the DevvE Blockchain</Link>.
+&copy; {new Date().getFullYear()} DevScrow. Built on DevvE's patented Contingent Transaction Sets (CTS) and DevvProtect. <Link href="https://devvdigital.gitbook.io/devve-network" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">Learn more about DevvE</Link>.
           </p>
         </div>
       </div>

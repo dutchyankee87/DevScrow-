@@ -11,14 +11,14 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-6">
-              Revolutionizing Professional Services with{" "}
+              DevScrow is to Upwork escrow what{" "}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Guaranteed Escrow
+                Ethereum smart contracts were to PayPal
               </span>
             </h1>
             <p className="text-xl text-gray-600 mb-8">
-              DevScrow is the world's first marketplace built specifically for premium professional services, 
-              powered by Devve's revolutionary Contingent Transaction Sets technology that eliminates counterparty risk.
+              We replace human trust and manual enforcement with code-based fairness and instant settlement. 
+              Built on DevvE's patented Contingent Transaction Sets (CTS) and DevvProtect.
             </p>
           </div>
         </div>
@@ -31,45 +31,45 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Mission</h2>
               <p className="text-lg text-gray-600 mb-6">
-                We're solving the $50+ billion problem of payment disputes in the freelance economy. 
-                Traditional platforms leave both buyers and sellers vulnerable to fraud, chargebacks, and extended payment holds.
+                DevScrow is a next-generation escrow protocol for digital services — replacing trust with mathematics, 
+                delays with instant settlement, and centralization with self-custody.
               </p>
               <p className="text-lg text-gray-600 mb-8">
-                DevScrow eliminates these risks entirely through mathematical guarantees, enabling premium professionals 
-                to focus on delivering exceptional work rather than worrying about payment disputes.
+                The result: a fair, unstoppable way to transact — where payment and delivery always happen together, 
+                and nobody can cheat the system.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700">Zero counterparty risk through cryptographic proofs</span>
+                  <span className="text-gray-700">Mathematical trust via DevvE's CTS</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700">Instant payment settlement upon delivery confirmation</span>
+                  <span className="text-gray-700">Instant, fair settlements</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700">Self-custody assets throughout the entire transaction</span>
+                  <span className="text-gray-700">Independence from platforms</span>
                 </div>
               </div>
             </div>
             <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold mb-2">$500+</div>
-                  <div className="text-blue-100">Minimum project value</div>
+                  <div className="text-3xl font-bold mb-2">Trustless</div>
+                  <div className="text-blue-100">Mathematical guarantee</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold mb-2">0%</div>
-                  <div className="text-blue-100">Dispute rate target</div>
+                  <div className="text-3xl font-bold mb-2">Atomic</div>
+                  <div className="text-blue-100">Instant settlement</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold mb-2">Instant</div>
-                  <div className="text-blue-100">Payment settlement</div>
+                  <div className="text-3xl font-bold mb-2">Self-Custody</div>
+                  <div className="text-blue-100">Via DevvE CTS</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold mb-2">100%</div>
-                  <div className="text-blue-100">Escrow protection</div>
+                  <div className="text-3xl font-bold mb-2">Zero</div>
+                  <div className="text-blue-100">Platform risk</div>
                 </div>
               </div>
             </div>
@@ -81,10 +81,10 @@ export default function AboutPage() {
       <section className="bg-gray-50 py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Powered by Devve's CTS Technology</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Positioning Summary</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Contingent Transaction Sets (CTS) enable atomic settlement of complex multi-party transactions 
-              without requiring trust in centralized intermediaries.
+              DevScrow turns escrow into an on-chain primitive — a programmable settlement layer for digital services. 
+              Using DevvE's patented CTS and DevvProtect layers, it replaces platform mediation with cryptographic certainty.
             </p>
           </div>
 
@@ -244,11 +244,10 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-16 text-center text-white">
             <h2 className="text-3xl font-bold sm:text-4xl mb-4">
-              Ready to Experience Zero-Risk Transactions?
+              Get paid instantly.
             </h2>
             <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-              Join the revolution in professional services. Whether you're buying or selling, 
-              every transaction is protected by mathematical guarantees.
+              No waiting, no middlemen, no disputes. Just fair, atomic trade powered by DevvE.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
               <Link href="/marketplace">

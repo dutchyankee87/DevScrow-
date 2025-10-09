@@ -45,8 +45,8 @@ export default function HowItWorksPage() {
             </h1>
             
             <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-600">
-              Learn how our revolutionary escrow technology powered by Devve's Contingent Transaction Sets 
-              eliminates counterparty risk and provides instant, mathematically guaranteed settlements.
+              DevScrow is what happens when you take escrow out of the hands of platforms and put it into code. 
+              It's instant, transparent, and powered by DevvE's Contingent Transaction Sets — meaning you don't need to trust anyone, not even us.
             </p>
             
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
@@ -72,10 +72,10 @@ export default function HowItWorksPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-              Zero-Risk Escrow in 4 Simple Steps
+              Trustless Escrow in 4 Simple Steps
             </h2>
             <p className="mt-4 text-lg text-gray-600">
-              From project discovery to instant payment - here's how it works
+              Mathematical guarantees replace human trust and manual enforcement
             </p>
           </div>
           
@@ -83,29 +83,29 @@ export default function HowItWorksPage() {
             {[
               { 
                 step: "1", 
-                title: "Browse & Connect", 
-                desc: "Find premium professional services or post your project needs",
-                icon: Search,
+                title: "Connect Wallet", 
+                desc: "Link your DevvE wallet address for self-custody transactions",
+                icon: Wallet,
                 color: "blue"
               },
               { 
                 step: "2", 
-                title: "Secure Escrow", 
-                desc: "Funds locked via Devve CTS - mathematically guaranteed settlement",
-                icon: Lock,
+                title: "Create/Find Service", 
+                desc: "Mint NFT representing service or browse existing offerings",
+                icon: Star,
                 color: "green"
               },
               { 
                 step: "3", 
-                title: "Work & Review", 
-                desc: "Professional delivery with built-in milestone tracking",
-                icon: FileText,
+                title: "Atomic Escrow", 
+                desc: "CTS locks payment & NFT together - mathematical guarantee",
+                icon: Lock,
                 color: "purple"
               },
               { 
                 step: "4", 
-                title: "Instant Release", 
-                desc: "Confirm satisfaction for immediate payment to seller",
+                title: "Instant Settlement", 
+                desc: "Delivery confirmation triggers atomic payment release",
                 icon: Zap,
                 color: "orange"
               }
@@ -134,10 +134,10 @@ export default function HowItWorksPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-              What Makes DevScrow Different?
+              DevScrow vs Traditional Escrow
             </h2>
             <p className="mt-4 text-lg text-gray-600">
-              Revolutionary technology that solves traditional escrow problems
+              Mathematical certainty vs human trust - see the difference
             </p>
           </div>
           
@@ -145,14 +145,14 @@ export default function HowItWorksPage() {
             {/* Traditional Problems */}
             <div>
               <h3 className="text-2xl font-bold text-red-800 mb-6 text-center">
-                Traditional Escrow Problems
+                Upwork Escrow Limitations
               </h3>
               <div className="space-y-4">
                 {[
-                  { icon: Clock, title: "14-21 Day Holds", desc: "Money locked for weeks in traditional escrow services" },
-                  { icon: AlertTriangle, title: "Dispute Risks", desc: "Subjective human arbitration with unpredictable outcomes" },
-                  { icon: CreditCard, title: "Chargeback Vulnerabilities", desc: "Credit card reversals months after project completion" },
-                  { icon: DollarSign, title: "High Fees", desc: "3-5% platform fees plus payment processing costs" }
+                  { icon: Clock, title: "5-14 Day Manual Release", desc: "Traditional payment rails with business day processing" },
+                  { icon: AlertTriangle, title: "Trusted Intermediary", desc: "Centralized platform holds funds - requires trust" },
+                  { icon: CreditCard, title: "Platform Custody", desc: "Upwork controls funds during transaction" },
+                  { icon: DollarSign, title: "Platform Risk", desc: "Dependent on Upwork as intermediary" }
                 ].map((problem, idx) => (
                   <Card key={idx} className="border-red-200 bg-red-50">
                     <CardContent className="flex items-center gap-4 pt-6">
@@ -170,14 +170,14 @@ export default function HowItWorksPage() {
             {/* Our Solutions */}
             <div>
               <h3 className="text-2xl font-bold text-green-800 mb-6 text-center">
-                DevScrow Solutions
+                DevScrow Advantages
               </h3>
               <div className="space-y-4">
                 {[
-                  { icon: Zap, title: "Instant Settlement", desc: "Payments released immediately upon delivery confirmation" },
-                  { icon: Shield, title: "Mathematical Guarantees", desc: "Cryptographic proof eliminates subjective disputes" },
-                  { icon: Wallet, title: "Self-Custody", desc: "You maintain control of your assets throughout the process" },
-                  { icon: Star, title: "Minimal Fees", desc: "Lower costs through blockchain efficiency and automation" }
+                  { icon: Zap, title: "Instant Atomic Settlement", desc: "Payments release atomically upon confirmation" },
+                  { icon: Shield, title: "Trustless Model", desc: "Mathematical guarantee vs trusting intermediaries" },
+                  { icon: Wallet, title: "Self-Custody via CTS", desc: "Users maintain control via DevvE Contingent Transaction Sets" },
+                  { icon: Star, title: "Zero Platform Risk", desc: "No dependency on platform solvency" }
                 ].map((solution, idx) => (
                   <Card key={idx} className="border-green-200 bg-green-50">
                     <CardContent className="flex items-center gap-4 pt-6">
@@ -539,10 +539,10 @@ export default function HowItWorksPage() {
         <div className="container mx-auto px-4">
           <div className="rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-16 text-center text-white">
             <h2 className="text-3xl font-bold sm:text-4xl">
-              Ready to Experience Zero-Risk Escrow?
+              Get paid instantly.
             </h2>
             <p className="mt-4 text-lg opacity-90">
-              Join the revolution in secure, instant business transactions
+              No waiting, no middlemen, no disputes. Just fair, atomic trade powered by DevvE.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
               <Link href="/marketplace">
