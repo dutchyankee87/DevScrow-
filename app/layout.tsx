@@ -19,8 +19,8 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Mckay's App Template",
-  description: "The easiest way to start your next project."
+  title: "DevScrow",
+  description: "The world's first marketplace with instant, mathematically guaranteed escrow. Zero counterparty risk powered by Devve's Contingent Transaction Sets."
 }
 
 export default function RootLayout({

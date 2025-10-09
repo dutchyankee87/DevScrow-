@@ -16,11 +16,12 @@ export default async function DashboardLayout({
 
   const customer = await getCustomerByUserId(user.id)
 
-  // Gate dashboard access for pro members only
-  // Store a message to show why they were redirected
-  if (!customer || customer.membership !== "pro") {
-    // Using searchParams to pass a message that can be read by client components
-    redirect("/?redirect=dashboard#pricing")
+  // Create customer with pro membership if they don't exist
+  if (!customer) {
+    const { createCustomer } = await import("@/actions/customers")
+    await createCustomer(user.id)
+    // Redirect to refresh the page with the new customer data
+    redirect("/dashboard")
   }
 
   const userData = {

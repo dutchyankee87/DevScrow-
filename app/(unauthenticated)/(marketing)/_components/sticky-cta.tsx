@@ -23,19 +23,19 @@ export function StickyCTA() {
             <div className="flex items-center justify-between gap-3">
               <div className="flex-1">
                 <p className="text-muted-foreground text-xs font-medium">
-                  Love this template?
+                  Share DevScrow with friends!
                 </p>
                 <p className="text-foreground text-sm font-semibold">
-                  Star us on GitHub!
+                  Send on WhatsApp
                 </p>
               </div>
               <Button size="sm" asChild className="group">
                 <Link
-                  href="https://github.com/mckaywrigley/mckays-app-template"
+                  href="https://wa.me/?text=Check%20out%20DevScrow%20-%20the%20secure%20escrow%20platform%20for%20digital%20transactions!"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Start Building
+                  Share Now
                   <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
@@ -84,24 +84,24 @@ export function StickyCTA() {
             <div className="space-y-4">
               <div>
                 <p className="text-muted-foreground text-sm font-medium">
-                  Love this template?
+                  Share DevScrow with friends!
                 </p>
                 <p className="text-foreground text-lg font-bold">
-                  Star us on GitHub!
+                  Send on WhatsApp
                 </p>
               </div>
               <Button asChild className="group w-full">
                 <Link
-                  href="https://github.com/mckaywrigley/mckays-app-template"
+                  href="https://wa.me/?text=Check%20out%20DevScrow%20-%20the%20secure%20escrow%20platform%20for%20digital%20transactions!"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Start Building
+                  Share Now
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
               <p className="text-muted-foreground text-center text-xs">
-                The #1 Full Stack App Template
+                Secure digital escrow platform
               </p>
             </div>
           </motion.div>

@@ -8,6 +8,20 @@
       "when": 1750112706924,
       "tag": "0000_flaky_vindicator",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1759932499461,
+      "tag": "0001_amusing_martin_li",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1728458000000,
+      "tag": "0002_capabilities_system",
+      "breakpoints": true
     }
   ]
 }

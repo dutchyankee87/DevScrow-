@@ -1,0 +1,14 @@
+{
+  "id": "0002_capabilities_system",
+  "prevId": "0001_amusing_martin_li",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {},
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

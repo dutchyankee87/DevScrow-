@@ -48,7 +48,7 @@ export async function createCustomer(
       .insert(customers)
       .values({
         userId,
-        membership: "free"
+        membership: "pro"
       })
       .returning()
 

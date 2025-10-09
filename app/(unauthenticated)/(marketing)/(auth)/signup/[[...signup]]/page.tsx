@@ -2,7 +2,7 @@
 
 import { SignUp } from "@clerk/nextjs"
 import { dark } from "@clerk/themes"
-import { Star, Users, BookOpen, Trophy, CheckCircle } from "lucide-react"
+import { Star, Users, Shield, Zap, CheckCircle, DollarSign, Clock, AlertTriangle } from "lucide-react"
 import { useTheme } from "next-themes"
 import Link from "next/link"
 import { motion } from "framer-motion"
@@ -11,8 +11,9 @@ export default function SignUpPage() {
   const { theme } = useTheme()
 
   return (
-    <div className="container mx-auto px-4 py-16">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      <div className="container mx-auto px-4 py-16">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
         {/* Left side - Benefits */}
         <motion.div
           className="hidden space-y-8 lg:block"
@@ -22,12 +23,12 @@ export default function SignUpPage() {
         >
           <div className="space-y-4">
             <motion.h1
-              className="text-4xl font-bold tracking-tight"
+              className="text-4xl font-bold tracking-tight bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              Build your next big idea
+              Join the Zero-Risk Revolution
             </motion.h1>
             <motion.p
               className="text-muted-foreground text-lg"
@@ -35,8 +36,8 @@ export default function SignUpPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Get instant access to a production-ready app template with
-              everything you need to launch quickly.
+              Start earning with mathematically guaranteed escrow. No more payment disputes,
+              chargebacks, or platform holds. Get paid instantly when you deliver.
             </motion.p>
           </div>
 
@@ -44,24 +45,24 @@ export default function SignUpPage() {
           <div className="grid grid-cols-2 gap-4">
             {[
               {
-                icon: BookOpen,
-                title: "Full Stack Ready",
-                desc: "Complete setup included"
+                icon: Shield,
+                title: "Zero Counterparty Risk",
+                desc: "Mathematical guarantees"
+              },
+              {
+                icon: Zap,
+                title: "Instant Settlement",
+                desc: "Get paid immediately"
+              },
+              {
+                icon: DollarSign,
+                title: "Premium Services",
+                desc: "$500+ projects only"
               },
               {
                 icon: Users,
-                title: "Authentication",
-                desc: "Clerk pre-configured"
-              },
-              {
-                icon: Trophy,
-                title: "Production Ready",
-                desc: "Launch immediately"
-              },
-              {
-                icon: Star,
-                title: "Modern Stack",
-                desc: "Next.js 15 + TypeScript"
+                title: "Verified Professionals",
+                desc: "Curated marketplace"
               }
             ].map((feature, i) => (
               <motion.div
@@ -93,60 +94,39 @@ export default function SignUpPage() {
             ))}
           </div>
 
-          {/* Social proof */}
+          {/* MVP Disclaimer */}
           <motion.div
-            className="space-y-4"
+            className="flex items-start gap-3 rounded-lg border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-950/20"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.7 }}
           >
-            <div className="flex items-center gap-2">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 500,
-                      damping: 15,
-                      delay: 0.8 + i * 0.05
-                    }}
-                  >
-                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                  </motion.div>
-                ))}
-              </div>
-              <span className="text-sm font-medium">4.9/5</span>
-              <span className="text-muted-foreground text-sm">
-                (1,200+ developers)
-              </span>
-            </div>
-            <div className="flex -space-x-2">
-              {[...Array(4)].map((_, i) => (
+            <div className="flex mt-0.5">
+              {[...Array(5)].map((_, i) => (
                 <motion.div
                   key={i}
-                  className="border-background bg-muted h-8 w-8 rounded-full border-2"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: 0.9 + i * 0.05 }}
-                  whileHover={{ y: -2 }}
-                />
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 500,
+                    damping: 15,
+                    delay: 0.8 + i * 0.05
+                  }}
+                >
+                  <Star className="h-3 w-3 fill-amber-500 text-amber-500" />
+                </motion.div>
               ))}
-              <motion.div
-                className="border-background bg-muted flex h-8 w-8 items-center justify-center rounded-full border-2 text-xs font-medium"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: 1.1 }}
-                whileHover={{ y: -2 }}
-              >
-                +2k
-              </motion.div>
+            </div>
+            <div>
+              <p className="text-sm font-medium text-amber-800 dark:text-amber-200">MVP Disclaimer</p>
+              <p className="text-xs text-amber-700 dark:text-amber-300 mt-1">
+                This is a Minimum Viable Product for demonstration purposes. Features and functionality are limited and subject to change.
+              </p>
             </div>
           </motion.div>
 
-          {/* Money-back guarantee */}
+          {/* Zero risk guarantee */}
           <motion.div
             className="flex items-center gap-3 rounded-lg border border-green-200 bg-green-50 p-4 dark:border-green-800 dark:bg-green-950/20"
             initial={{ opacity: 0, y: 20 }}
@@ -167,7 +147,23 @@ export default function SignUpPage() {
             >
               <CheckCircle className="h-5 w-5 text-green-600 dark:text-green-400" />
             </motion.div>
-            <p className="text-sm font-medium">100% Free & Open Source</p>
+            <p className="text-sm font-medium">Zero Counterparty Risk Guaranteed</p>
+          </motion.div>
+
+          {/* Problem callout */}
+          <motion.div
+            className="flex items-start gap-3 rounded-lg border border-red-200 bg-red-50 p-4 dark:border-red-800 dark:bg-red-950/20"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 1.3 }}
+          >
+            <AlertTriangle className="h-5 w-5 text-red-600 dark:text-red-400 mt-0.5 flex-shrink-0" />
+            <div>
+              <p className="text-sm font-medium text-red-800 dark:text-red-200">Tired of Platform Drama?</p>
+              <p className="text-xs text-red-700 dark:text-red-300 mt-1">
+                No more 14-day holds, payment disputes, or chargebacks. Join professionals earning $500+ with guaranteed payments.
+              </p>
+            </div>
           </motion.div>
         </motion.div>
 
@@ -184,7 +180,7 @@ export default function SignUpPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <h2 className="mb-2 text-2xl font-semibold">Create account</h2>
+            <h2 className="mb-2 text-2xl font-semibold">Join DevScrow</h2>
             <p className="text-muted-foreground text-sm">
               Already have an account?{" "}
               <motion.span
@@ -213,6 +209,7 @@ export default function SignUpPage() {
             />
           </motion.div>
         </motion.div>
+      </div>
       </div>
     </div>
   )

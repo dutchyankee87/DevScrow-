@@ -1,4 +1,4 @@
-import { Github, Instagram, Music2, Youtube } from "lucide-react"
+import { Github, Shield, ExternalLink } from "lucide-react"
 import Link from "next/link"
 
 const XLogo = ({ className }: { className?: string }) => (
@@ -14,37 +14,34 @@ const XLogo = ({ className }: { className?: string }) => (
 
 export function Footer() {
   const footerNavigation = {
-    product: [
-      { name: "Features", href: "#features" },
-      { name: "Pricing", href: "#pricing" },
-      { name: "Testimonials", href: "#testimonials" },
-      { name: "Integration", href: "#" }
+    marketplace: [
+      { name: "Browse Services", href: "/marketplace" },
+      { name: "How It Works", href: "/#how-it-works" },
+      { name: "Create Listing", href: "/dashboard/listings/new" },
+      { name: "Dashboard", href: "/dashboard" }
     ],
-    company: [
-      { name: "About", href: "#about" },
-      { name: "Blog", href: "#" },
-      { name: "Careers", href: "#" },
-      { name: "Press", href: "#" }
+    technology: [
+      { name: "Devve Network", href: "https://devvdigital.gitbook.io/devve-network", external: true },
+      { name: "Atomic Escrow", href: "/#features" },
+      { name: "CTS Technology", href: "https://devvdigital.gitbook.io/devve-network", external: true },
+      { name: "Security", href: "/#features" }
     ],
-    resources: [
-      { name: "Documentation", href: "#" },
-      { name: "Guides", href: "#" },
-      { name: "Help Center", href: "#" },
-      { name: "Community", href: "#" }
+    support: [
+      { name: "Help Center", href: "/contact" },
+      { name: "Contact Us", href: "/contact" },
+      { name: "About", href: "/about" },
+      { name: "GitHub", href: "https://github.com", external: true }
     ],
     legal: [
-      { name: "Privacy", href: "#" },
-      { name: "Terms", href: "#" },
+      { name: "Privacy Policy", href: "#" },
+      { name: "Terms of Service", href: "#" },
       { name: "Cookie Policy", href: "#" },
       { name: "License", href: "#" }
     ]
   }
 
   const socialLinks = [
-    { name: "X", href: "https://x.com", icon: XLogo },
-    { name: "YouTube", href: "https://youtube.com", icon: Youtube },
-    { name: "Instagram", href: "https://instagram.com", icon: Instagram },
-    { name: "TikTok", href: "https://tiktok.com", icon: Music2 },
+    { name: "Devve Network", href: "https://devvdigital.gitbook.io/devve-network", icon: ExternalLink },
     { name: "GitHub", href: "https://github.com", icon: Github }
   ]
 
@@ -56,11 +53,13 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 pt-16 pb-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
-            <Link href="/" className="text-xl font-bold">
-              Company
+            <Link href="/" className="flex items-center gap-2 text-xl font-bold">
+              <Shield className="h-6 w-6 text-blue-600" />
+              DevScrow
             </Link>
             <p className="text-muted-foreground text-sm leading-6">
-              Your company description here.
+              The world's first marketplace with instant, mathematically guaranteed escrow. 
+              Powered by Devve's revolutionary Contingent Transaction Sets.
             </p>
             <div className="flex space-x-6">
               {socialLinks.map(item => (
@@ -79,10 +78,10 @@ export function Footer() {
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
                 <h3 className="text-foreground text-sm leading-6 font-semibold">
-                  Product
+                  Marketplace
                 </h3>
                 <ul role="list" className="mt-6 space-y-4">
-                  {footerNavigation.product.map(item => (
+                  {footerNavigation.marketplace.map(item => (
                     <li key={item.name}>
                       <Link
                         href={item.href}
@@ -96,16 +95,18 @@ export function Footer() {
               </div>
               <div className="mt-10 md:mt-0">
                 <h3 className="text-foreground text-sm leading-6 font-semibold">
-                  Company
+                  Technology
                 </h3>
                 <ul role="list" className="mt-6 space-y-4">
-                  {footerNavigation.company.map(item => (
+                  {footerNavigation.technology.map(item => (
                     <li key={item.name}>
                       <Link
                         href={item.href}
-                        className="text-muted-foreground hover:text-foreground text-sm leading-6"
+                        className="text-muted-foreground hover:text-foreground text-sm leading-6 flex items-center gap-1"
+                        {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                       >
                         {item.name}
+                        {item.external && <ExternalLink className="h-3 w-3" />}
                       </Link>
                     </li>
                   ))}
@@ -115,16 +116,18 @@ export function Footer() {
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
                 <h3 className="text-foreground text-sm leading-6 font-semibold">
-                  Resources
+                  Support
                 </h3>
                 <ul role="list" className="mt-6 space-y-4">
-                  {footerNavigation.resources.map(item => (
+                  {footerNavigation.support.map(item => (
                     <li key={item.name}>
                       <Link
                         href={item.href}
-                        className="text-muted-foreground hover:text-foreground text-sm leading-6"
+                        className="text-muted-foreground hover:text-foreground text-sm leading-6 flex items-center gap-1"
+                        {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                       >
                         {item.name}
+                        {item.external && <ExternalLink className="h-3 w-3" />}
                       </Link>
                     </li>
                   ))}
@@ -152,7 +155,7 @@ export function Footer() {
         </div>
         <div className="border-border mt-16 border-t pt-8 sm:mt-20 lg:mt-24">
           <p className="text-muted-foreground text-xs leading-5">
-            &copy; {new Date().getFullYear()} Company, Inc. All rights reserved.
+            &copy; {new Date().getFullYear()} DevScrow. <Link href="https://devve.com/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">powered by the DevvE Blockchain</Link>.
           </p>
         </div>
       </div>

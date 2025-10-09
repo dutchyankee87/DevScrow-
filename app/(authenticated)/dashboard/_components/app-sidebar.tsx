@@ -1,6 +1,6 @@
 "use client"
 
-import { Link, Settings2, User, Users } from "lucide-react"
+import { Settings2, User, Users, Package, Shield, Store, DollarSign } from "lucide-react"
 import * as React from "react"
 
 import {
@@ -29,61 +29,85 @@ export function AppSidebar({
     user: userData,
     teams: [
       {
-        name: "Personal",
-        logo: User,
-        plan: "Account"
-      },
-      {
-        name: "Team 1",
-        logo: Users,
-        plan: "Team"
-      },
-      {
-        name: "Team 2",
-        logo: Users,
-        plan: "Team"
-      },
-      {
-        name: "Team 3",
-        logo: Users,
-        plan: "Team"
+        name: "DevScrow",
+        logo: Shield,
+        plan: "Marketplace"
       }
     ],
     navMain: [
       {
-        title: "Nav Item 1",
+        title: "Marketplace",
         url: "#",
-        icon: Link,
+        icon: Store,
         items: [
           {
-            title: "Sub Item 1",
-            url: "/dashboard/nav-item-1"
+            title: "Browse Services",
+            url: "/marketplace"
           },
           {
-            title: "Sub Item 2",
-            url: "/dashboard/nav-item-2"
+            title: "My Listings",
+            url: "/dashboard/listings"
+          },
+          {
+            title: "Create Listing",
+            url: "/dashboard/listings/new"
           }
         ]
       },
       {
-        title: "Nav Item 2",
+        title: "Escrows",
         url: "#",
-        icon: Link,
+        icon: Shield,
         items: [
           {
-            title: "Sub Item 1",
-            url: "/dashboard/nav-item-1"
+            title: "My Escrows",
+            url: "/dashboard/escrows"
+          },
+          {
+            title: "As Buyer",
+            url: "/dashboard/escrows?tab=buyer"
+          },
+          {
+            title: "As Seller", 
+            url: "/dashboard/escrows?tab=seller"
           }
         ]
       },
       {
-        title: "Settings",
+        title: "Wallet",
+        url: "#",
+        icon: DollarSign,
+        items: [
+          {
+            title: "Balance",
+            url: "/dashboard/wallet"
+          },
+          {
+            title: "Transactions",
+            url: "/dashboard/wallet/transactions"
+          }
+        ]
+      },
+      {
+        title: "Account",
         url: "#",
         icon: Settings2,
         items: [
           {
-            title: "General",
-            url: "/dashboard/settings"
+            title: "Profile",
+            url: "/dashboard/account"
+          },
+          {
+            title: "Marketplace Profile",
+            url: "/dashboard/profile-setup"
+          },
+          {
+            title: "Billing",
+            url: "/dashboard/billing"
+          },
+          {
+            title: "Support",
+            url: "/dashboard/support"
           }
         ]
       }
