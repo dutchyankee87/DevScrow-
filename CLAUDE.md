@@ -60,4 +60,27 @@ This is a Next.js 15 SaaS template using the App Router with clear separation be
 - `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` - Clerk public key
 - `CLERK_SECRET_KEY` - Clerk secret key
 - `STRIPE_SECRET_KEY` - Stripe secret key
+- `DEVVE_API_KEY` - DevVe Network API key
 - Database connection handled by Supabase CLI
+
+## DevVe Network API
+
+DevScrow integrates with the DevVe Network for blockchain settlement functionality.
+
+### API Information
+- **Base URL**: Varies by shard (testnet currently live)
+- **Authentication**: API key required (`DEVVE_API_KEY`)
+- **Documentation**: https://devvdigital.gitbook.io/devve-network/
+
+### Key Features
+- Mathematically Instant Settlement (MIS)
+- Contingent Transaction Sets (CTS)
+- Zero counterparty risk with DevvProtect security
+
+### Common Endpoints
+- Transaction status: `POST /core/transactions/status`
+
+### Development Notes
+- Must agree to DevvE Testnet Terms of Service
+- OpenAPI specification available
+- Community support via Discord and Discourse
