@@ -224,7 +224,7 @@ export default function LoginPage() {
                   href="/signup"
                   className="text-primary font-medium transition-colors hover:underline"
                 >
-                  Start building for free
+                  Join the waitlist
                   <ArrowRight className="ml-1 inline h-3 w-3" />
                 </Link>
               </motion.span>

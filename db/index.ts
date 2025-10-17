@@ -3,6 +3,7 @@ import { drizzle as drizzlePostgres } from "drizzle-orm/postgres-js"
 import postgres from "postgres"
 import { customers } from "./schema/customers"
 import * as escrowSchema from "./schema/escrow"
+import { ctsWaitlist } from "./schema/waitlist"
 
 config({ path: ".env.local" })
 
@@ -14,6 +15,7 @@ if (!databaseUrl) {
 const dbSchema = {
   // tables
   customers,
+  ctsWaitlist,
   ...escrowSchema
   // relations
 }

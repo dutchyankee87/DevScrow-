@@ -1,7 +1,10 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import { motion } from "framer-motion"
 import { 
   Shield, 
   Zap, 
@@ -28,41 +31,130 @@ export default function HowItWorksPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20 sm:py-32">
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-teal-50 py-20 sm:py-32">
+        {/* Animated background elements */}
+        <motion.div
+          className="absolute inset-0 -z-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+        >
+          <motion.div
+            className="absolute top-20 right-10 h-20 w-20 rounded-full bg-teal-200/30"
+            animate={{
+              scale: [1, 1.3, 1],
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          <motion.div
+            className="absolute bottom-20 left-10 h-16 w-16 rounded-full bg-emerald-200/40"
+            animate={{
+              scale: [1.2, 1, 1.2],
+              y: [0, -20, 0],
+              opacity: [0.2, 0.5, 0.2],
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1
+            }}
+          />
+        </motion.div>
+
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <div className="mb-8 flex justify-center">
-              <Badge variant="outline" className="px-4 py-2 text-sm font-medium">
-                🛡️ Revolutionary Escrow Technology
-              </Badge>
-            </div>
+            <motion.div 
+              className="mb-8 flex justify-center"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Badge variant="outline" className="px-4 py-2 text-sm font-medium">
+                  🛡️ Revolutionary Escrow Technology
+                </Badge>
+              </motion.div>
+            </motion.div>
             
-            <h1 className="mx-auto max-w-4xl text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+            <motion.h1 
+              className="mx-auto max-w-4xl text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
               How{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <motion.span 
+                className="bg-gradient-to-r from-slate-700 to-teal-600 bg-clip-text text-transparent"
+                animate={{
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+                }}
+                transition={{
+                  duration: 6,
+                  ease: "linear",
+                  repeat: Infinity
+                }}
+                style={{
+                  backgroundSize: "200% 200%"
+                }}
+              >
                 DevScrow Works
-              </span>
-            </h1>
+              </motion.span>
+            </motion.h1>
             
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-600">
+            <motion.p 
+              className="mx-auto mt-6 max-w-2xl text-lg text-gray-600"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
               DevScrow is what happens when you take escrow out of the hands of platforms and put it into code. 
               It's instant, transparent, and powered by DevvE's Contingent Transaction Sets — meaning you don't need to trust anyone, not even us.
-            </p>
+            </motion.p>
             
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
-              <Link href="/marketplace">
-                <Button size="lg" className="w-full sm:w-auto">
-                  <Shield className="mr-2 h-5 w-5" />
-                  Try It Now
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-              <Link href="#detailed-process">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                  Learn More
-                </Button>
-              </Link>
-            </div>
+            <motion.div 
+              className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link href="/marketplace">
+                  <Button size="lg" className="w-full sm:w-auto">
+                    <Shield className="mr-2 h-5 w-5" />
+                    Try It Now
+                    <motion.div
+                      className="ml-2"
+                      animate={{ x: [0, 4, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      <ArrowRight className="h-4 w-4" />
+                    </motion.div>
+                  </Button>
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link href="#detailed-process">
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                    Learn More
+                  </Button>
+                </Link>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -553,7 +645,7 @@ export default function HowItWorksPage() {
               </Link>
               <Link href="/signup">
                 <Button size="lg" variant="outline" className="w-full border-white text-white hover:bg-white hover:text-blue-600 sm:w-auto">
-                  Start Selling Today
+                  Join the waitlist
                 </Button>
               </Link>
             </div>

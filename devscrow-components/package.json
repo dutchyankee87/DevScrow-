@@ -1,0 +1,55 @@
+{
+  "name": "devscrow-components",
+  "version": "1.0.0",
+  "description": "Reusable DevScrow components package - Header, Share Widget, and Footer",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "devscrow",
+    "header",
+    "footer",
+    "share-widget",
+    "escrow"
+  ],
+  "author": "DevScrow",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "next": "^14.0.0 || ^15.0.0",
+    "tailwindcss": "^3.0.0"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "^5.0.0",
+    "@radix-ui/react-slot": "^1.0.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "framer-motion": "^11.0.0",
+    "lucide-react": "^0.400.0",
+    "next-themes": "^0.3.0",
+    "tailwind-merge": "^2.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "rollup": "^4.0.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "tslib": "^2.6.0",
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ]
+}

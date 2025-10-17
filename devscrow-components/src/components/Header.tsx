@@ -1,19 +1,36 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { SelectCustomer } from "@/db/schema/customers"
+import { Button } from "./ui/button"
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
-import { Menu, Moon, Sun, X, Shield } from "lucide-react"
+import { Menu, Moon, Sun, Shield, X } from "lucide-react"
 import { useTheme } from "next-themes"
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import { motion } from "framer-motion"
 
-interface HeaderProps {
-  userMembership: SelectCustomer["membership"] | null
+export interface HeaderConfig {
+  brand: {
+    name: string
+    href: string
+    icon?: React.ComponentType<{ className?: string }>
+  }
+  navigation: Array<{
+    name: string
+    href: string
+  }>
+  auth: {
+    loginHref: string
+    signupHref: string
+    dashboardHref: string
+  }
+  showThemeToggle?: boolean
 }
 
-export function Header({ userMembership }: HeaderProps) {
+interface HeaderProps {
+  config: HeaderConfig
+  userMembership?: string | null
+}
+
+export function Header({ config, userMembership }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
@@ -22,12 +39,7 @@ export function Header({ userMembership }: HeaderProps) {
     setMounted(true)
   }, [])
 
-  const navigation = [
-    { name: "Marketplace", href: "/marketplace" },
-    { name: "How It Works", href: "/how-it-works" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" }
-  ]
+  const BrandIcon = config.brand.icon || Shield
 
   return (
     <>
@@ -37,20 +49,10 @@ export function Header({ userMembership }: HeaderProps) {
           aria-label="Global"
         >
           <div className="flex lg:flex-1">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2">
-                <motion.div
-                  animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                >
-                  <Shield className="h-6 w-6 text-teal-600" />
-                </motion.div>
-                <span className="text-xl font-bold">DevScrow</span>
-              </Link>
-            </motion.div>
+            <Link href={config.brand.href} className="-m-1.5 p-1.5 flex items-center gap-2">
+              <BrandIcon className="h-6 w-6 text-blue-600" />
+              <span className="text-xl font-bold">{config.brand.name}</span>
+            </Link>
           </div>
           <div className="flex lg:hidden">
             <button
@@ -67,55 +69,43 @@ export function Header({ userMembership }: HeaderProps) {
             </button>
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
-            {navigation.map((item, i) => (
-              <motion.div
+            {config.navigation.map(item => (
+              <Link
                 key={item.name}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: i * 0.1 }}
-                whileHover={{ scale: 1.05 }}
+                href={item.href}
+                className="text-foreground hover:text-muted-foreground text-sm leading-6 font-semibold"
               >
-                <Link
-                  href={item.href}
-                  className="text-foreground hover:text-muted-foreground text-sm leading-6 font-semibold transition-colors duration-200"
-                >
-                  {item.name}
-                </Link>
-              </motion.div>
+                {item.name}
+              </Link>
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
-            </Button>
-            <SignedOut>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+            {config.showThemeToggle !== false && (
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                aria-label="Toggle theme"
               >
-                <Button asChild>
-                  <Link href="/signup">Join the waitlist</Link>
-                </Button>
-              </motion.div>
+                {theme === "dark" ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
+              </Button>
+            )}
+            <SignedOut>
+              <Button variant="ghost" asChild>
+                <Link href={config.auth.loginHref}>Log in</Link>
+              </Button>
+              <Button asChild>
+                <Link href={config.auth.signupHref}>Sign up</Link>
+              </Button>
             </SignedOut>
             <SignedIn>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button asChild>
-                  <Link href="/dashboard">Dashboard</Link>
-                </Button>
-              </motion.div>
+              <Button asChild>
+                <Link href={config.auth.dashboardHref}>Dashboard</Link>
+              </Button>
               <UserButton />
             </SignedIn>
           </div>
@@ -135,12 +125,12 @@ export function Header({ userMembership }: HeaderProps) {
           <div className="bg-background sm:ring-border fixed inset-y-0 right-0 z-[70] w-full overflow-y-auto px-6 py-6 shadow-2xl sm:max-w-sm sm:ring-1 lg:hidden">
             <div className="flex items-center justify-between">
               <Link
-                href="/"
+                href={config.brand.href}
                 className="-m-1.5 p-1.5 flex items-center gap-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <Shield className="h-6 w-6 text-blue-600" />
-                <span className="text-xl font-bold">DevScrow</span>
+                <BrandIcon className="h-6 w-6 text-blue-600" />
+                <span className="text-xl font-bold">{config.brand.name}</span>
               </Link>
               <button
                 type="button"
@@ -154,7 +144,7 @@ export function Header({ userMembership }: HeaderProps) {
             <div className="mt-6 flow-root">
               <div className="divide-border -my-6 divide-y">
                 <div className="space-y-2 py-6">
-                  {navigation.map(item => (
+                  {config.navigation.map(item => (
                     <Link
                       key={item.name}
                       href={item.href}
@@ -166,35 +156,45 @@ export function Header({ userMembership }: HeaderProps) {
                   ))}
                 </div>
                 <div className="space-y-3 py-6">
-                  <Button
-                    variant="outline"
-                    className="w-full justify-start"
-                    onClick={() => {
-                      setTheme(theme === "dark" ? "light" : "dark")
-                      setMobileMenuOpen(false)
-                    }}
-                  >
-                    {theme === "dark" ? (
-                      <Sun className="mr-2 h-4 w-4" />
-                    ) : (
-                      <Moon className="mr-2 h-4 w-4" />
-                    )}
-                    {theme === "dark" ? "Light Mode" : "Dark Mode"}
-                  </Button>
+                  {config.showThemeToggle !== false && (
+                    <Button
+                      variant="outline"
+                      className="w-full justify-start"
+                      onClick={() => {
+                        setTheme(theme === "dark" ? "light" : "dark")
+                        setMobileMenuOpen(false)
+                      }}
+                    >
+                      {theme === "dark" ? (
+                        <Sun className="mr-2 h-4 w-4" />
+                      ) : (
+                        <Moon className="mr-2 h-4 w-4" />
+                      )}
+                      {theme === "dark" ? "Light Mode" : "Dark Mode"}
+                    </Button>
+                  )}
                   <SignedOut>
-                    <Button className="w-full" asChild>
+                    <Button variant="outline" className="w-full" asChild>
                       <Link
-                        href="/signup"
+                        href={config.auth.loginHref}
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        Join the waitlist
+                        Log in
+                      </Link>
+                    </Button>
+                    <Button className="w-full" asChild>
+                      <Link
+                        href={config.auth.signupHref}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        Sign up
                       </Link>
                     </Button>
                   </SignedOut>
                   <SignedIn>
                     <Button className="w-full" asChild>
                       <Link
-                        href="/dashboard"
+                        href={config.auth.dashboardHref}
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         Dashboard
@@ -213,3 +213,4 @@ export function Header({ userMembership }: HeaderProps) {
     </>
   )
 }
+

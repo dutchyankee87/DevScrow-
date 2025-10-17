@@ -28,8 +28,8 @@ export function PricingButton({
     if (!isSignedIn) {
       // Store the payment link for post-auth redirect
       sessionStorage.setItem("pendingCheckout", paymentLink)
-      toast.info("Please sign in to continue")
-      router.push("/login")
+      toast.info("Please join the waitlist to continue")
+      router.push("/signup")
       return
     }
 
